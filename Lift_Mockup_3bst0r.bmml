@@ -101,6 +101,7 @@
         <backgroundAlpha>1</backgroundAlpha>
         <tabHPosition>right</tabHPosition>
         <text>Home%2C%20Favoriten%2C%20Suche%2C%20Account</text>
+        <underline>false</underline>
       </controlProperties>
     </control>
     <control controlID="37" controlTypeID="com.balsamiq.mockups::Arrow" x="1013" y="78" w="180" h="55" measuredW="150" measuredH="100" zOrder="17" locked="false" isInGroup="-1">
@@ -130,6 +131,45 @@
       <controlProperties>
         <size>9</size>
         <text>Name%2C%20Location%2C%20Type%0AHochf%FCgen%202000%2C%20F%FCgenberg%2C%208er%20Einseilumlaufbahn%0AArzjochbahn%2C%20F%FCgenberg%2C%206er%20Sessellift%20kuppelbar%0A...%2C...%2C...%0A%7B0L%2C%200L%2C%200%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Link" x="1660" y="485" w="-1" h="-1" measuredW="58" measuredH="24" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>18</size>
+        <state>up</state>
+        <text>log%20out</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Arrow" x="408" y="497" w="1252" h="62" measuredW="150" measuredH="100" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>bottom</direction>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Link" x="1588" y="303" w="-1" h="-1" measuredW="128" measuredH="19" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>change%20billing%20options</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Link" x="1588" y="261" w="-1" h="-1" measuredW="103" measuredH="19" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <italic>false</italic>
+        <text>change%20password</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Link" x="1589" y="221" w="-1" h="-1" measuredW="51" measuredH="19" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>my%20stats</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Link" x="1588" y="349" w="-1" h="-1" measuredW="83" measuredH="19" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>give%20feedback</text>
       </controlProperties>
     </control>
   </controls>
