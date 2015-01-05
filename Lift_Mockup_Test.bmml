@@ -321,7 +321,7 @@
         <text>Skilift/-gebiet%20X</text>
       </controlProperties>
     </control>
-    <control controlID="94" controlTypeID="com.balsamiq.mockups::Button" x="579" y="1177" w="135" h="53" measuredW="127" measuredH="27" zOrder="68" locked="false" isInGroup="-1">
+    <control controlID="94" controlTypeID="com.balsamiq.mockups::Button" x="579" y="1200" w="135" h="53" measuredW="127" measuredH="27" zOrder="68" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <size>18</size>
@@ -379,7 +379,7 @@
     <control controlID="114" controlTypeID="com.balsamiq.mockups::Icon" x="989" y="1080" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="88" locked="false" isInGroup="-1"/>
     <control controlID="115" controlTypeID="com.balsamiq.mockups::Icon" x="1052" y="1080" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="89" locked="false" isInGroup="-1"/>
     <control controlID="116" controlTypeID="com.balsamiq.mockups::Icon" x="1112" y="1080" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="90" locked="false" isInGroup="-1"/>
-    <control controlID="117" controlTypeID="com.balsamiq.mockups::Button" x="978" y="1177" w="135" h="53" measuredW="127" measuredH="27" zOrder="91" locked="false" isInGroup="-1">
+    <control controlID="117" controlTypeID="com.balsamiq.mockups::Button" x="978" y="1200" w="135" h="53" measuredW="127" measuredH="27" zOrder="91" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <size>18</size>
@@ -395,6 +395,16 @@
       <controlProperties>
         <direction>bottom</direction>
         <text/>
+      </controlProperties>
+    </control>
+    <control controlID="120" controlTypeID="com.balsamiq.mockups::TextInput" x="621" y="1152" w="-1" h="-1" measuredW="45" measuredH="27" zOrder="94" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u20AC%202%2C-</text>
+      </controlProperties>
+    </control>
+    <control controlID="121" controlTypeID="com.balsamiq.mockups::TextInput" x="1013" y="1158" w="-1" h="-1" measuredW="45" measuredH="27" zOrder="95" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u20AC%202%2C-</text>
       </controlProperties>
     </control>
   </controls>
