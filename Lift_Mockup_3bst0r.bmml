@@ -308,8 +308,10 @@
         <text>confirm%20password</text>
       </controlProperties>
     </control>
-    <control controlID="121" controlTypeID="com.balsamiq.mockups::Button" x="1992" y="387" w="-1" h="-1" measuredW="73" measuredH="27" zOrder="49" locked="false" isInGroup="-1">
+    <control controlID="121" controlTypeID="com.balsamiq.mockups::Button" x="1986" y="387" w="96" h="31" measuredW="96" measuredH="27" zOrder="49" locked="false" isInGroup="-1">
       <controlProperties>
+        <bold>true</bold>
+        <size>18</size>
         <text>Register</text>
       </controlProperties>
     </control>
