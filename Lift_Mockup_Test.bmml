@@ -402,7 +402,7 @@
         <text>%u20AC%202%2C-</text>
       </controlProperties>
     </control>
-    <control controlID="121" controlTypeID="com.balsamiq.mockups::TextInput" x="1013" y="1158" w="-1" h="-1" measuredW="45" measuredH="27" zOrder="95" locked="false" isInGroup="-1">
+    <control controlID="121" controlTypeID="com.balsamiq.mockups::TextInput" x="1025" y="1152" w="-1" h="-1" measuredW="45" measuredH="27" zOrder="95" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u20AC%202%2C-</text>
       </controlProperties>
