@@ -1,32 +1,44 @@
 Liftstation
 ===========
-
+-name: String
+-plz: String
+-type: String
+-transportCapacity: int
+-barriers: List<Barrier>
 -----------
-
++getters and setters
 -----------
 
 Liftmanager
 ===========
-
+-station: Liftstation
+-requests: Queue
+-----------
++run()
 -----------
 
------------
-
+Barrier
+=======
+-connection: Connection  // connection to real-world-barrier
+-------
++openBarrier()
+---------
 
 Backend
 =======
-
+-Map<String,Liftstation> liftstations
 -------
-
++getStation(name: String)
+-readXlsTable(table: File)
 -------
 
 User
 ====
-+ Mail: String
-- Password: String
-- PaymentMethod: String
-- Favourites: List<Liftstation>
-----
+- mail: String
+- password: String
+- paymentMethod: String
+- favourites: List<Liftstation>
+--------------------------------------------
 + void changePW(String oldPW, String newPW);
 + void changePayment(String pm);
 + void addFavourite(Liftstation ls);
