@@ -46,6 +46,15 @@ User
 + void giveFeedback(String fb);
 + getter & setter
 
+
+Usermanager
+===========
+
+-----------
++ void login(User user);
++ void logout(User user);
+
+
 Algorithms
 ==========
 
