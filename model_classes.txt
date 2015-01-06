@@ -19,3 +19,24 @@ Backend
 -------
 
 -------
+
+User
+====
++ Mail: String
+- Password: String
+- PaymentMethod: String
+- Favourites: List<Liftstation>
+----
++ void changePW(String oldPW, String newPW);
++ void changePayment(String pm);
++ void addFavourite(Liftstation ls);
++ void removeFavourite(Liftstation ls);
++ void giveFeedback(String fb);
++ getter & setter
+
+Algorithms
+==========
+
+----------
+
+----------
