@@ -26,9 +26,11 @@ Barrier
 
 Backend
 =======
--Map<String,Liftstation> liftstations
 -------
-+getStation(name: String)
++ void addUser(User user);
++ Boolean isRegistered(User user);
++ void addLift(Liftstation ls);
++ Liftstation getStation(String name);
 -readXlsTable(table: File)
 -------
 
@@ -39,8 +41,8 @@ User
 - paymentMethod: String
 - favourites: List<Liftstation>
 --------------------------------------------
-+ void changePW(String oldPW, String newPW);
-+ void changePayment(String pm);
+- void changePW(String oldPW, String newPW);
+- void changePayment(String pm);
 + void addFavourite(Liftstation ls);
 + void removeFavourite(Liftstation ls);
 + void giveFeedback(String fb);
@@ -53,11 +55,3 @@ Usermanager
 -----------
 + void login(User user);
 + void logout(User user);
-
-
-Algorithms
-==========
-
-----------
-
-----------
