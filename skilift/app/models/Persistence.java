@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Backend {
+public class Persistence implements Backend {
 
 	public void addUser(User user){
 		
@@ -20,11 +20,8 @@ public class Backend {
 		return new Liftstation("dummy", "dummy", "dummy","dummy", new ArrayList<Barrier>());
 	}
 	
-	private void readXLSTable(File table){
+	public void readXLSTable(File table){
 		
-	}
-	public static void main(String[] args) {
-
 	}
 
 }
