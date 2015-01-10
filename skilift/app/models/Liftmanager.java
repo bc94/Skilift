@@ -11,8 +11,4 @@ public class Liftmanager {
 		
 	}
 	
-	public static void main(String[] args) {
-
-	}
-
 }

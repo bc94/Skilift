@@ -9,9 +9,6 @@ public class Usermanager {
 	public void logout(User user){
 		
 	}
-	
-	public static void main(String[] args) {
 
-	}
 
 }

@@ -59,8 +59,5 @@ public class Liftstation {
 		this.barriers = barriers;
 	}
 
-	public static void main(String[] args) {
-
-	}
 
 }
