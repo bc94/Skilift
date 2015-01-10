@@ -1,14 +1,17 @@
 package models;
 
-import java.io.File;
+import java.util.List;
 
 public interface Backend {
 	
-	void addUser(User user);
+	void registerUser(User user);
 	
-	Boolean isRegistered(User user);
+	boolean isRegistered(User user);
 	
 	Liftstation getStation(String name);
 	
-	void readXLSTable(File table);
+	void addFavourite(User user, Liftstation lift);
+
+	List<Liftstation> getFavourites(User user);
+
 }

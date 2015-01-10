@@ -5,6 +5,7 @@ import java.util.List;
 public class Liftstation {
 
 	private String name;
+	private int ID;
 	private String plz;
 	private String type;
 	private String capacity;
@@ -59,5 +60,8 @@ public class Liftstation {
 		this.barriers = barriers;
 	}
 
+	public int getID() {
+		return ID;
+	}
 
 }
