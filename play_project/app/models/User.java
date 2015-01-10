@@ -9,8 +9,6 @@ public interface User {
 	public void giveFeedback(String fb);
 	public Request rentRequest(Liftstation ls);
 	
-	public static void main(String[] args) {	
 
-	}
 
 }
