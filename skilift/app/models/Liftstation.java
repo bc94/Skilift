@@ -8,10 +8,10 @@ public class Liftstation {
 	private int ID;
 	private String plz;
 	private String type;
-	private String capacity;
+	private Integer capacity;
 	private List<Barrier> barriers;
 	
-	public Liftstation(String n, String p, String t, String c, List<Barrier> list){
+	public Liftstation(String n, String p, String t, Integer c, List<Barrier> list){
 		
 		name = n;
 		plz = p;
@@ -44,11 +44,11 @@ public class Liftstation {
 		this.type = type;
 	}
 
-	public String getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(String capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
 

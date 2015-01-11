@@ -54,7 +54,7 @@ public class Persistence implements Backend {
 	
 	public Liftstation getStation(String name){
 		
-		return new Liftstation("dummy", "dummy", "dummy","dummy", null);
+		return new Liftstation("dummy", "dummy", "dummy", 0, null);
 	}
 	
 	public void initDB() {
