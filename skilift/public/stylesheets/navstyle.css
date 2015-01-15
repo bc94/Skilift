@@ -1,7 +1,7 @@
 
 
 #cssmenu {
-  background: #f96e5b;
+  background: #ADD8E6;
   width: auto;
 }
 #cssmenu ul {
@@ -61,7 +61,7 @@
   top: 19px;
   height: 6px;
   width: 6px;
-  background: #ffffff;
+  background: #FFFFFF;
   opacity: .5;
 }
 #cssmenu ul li a:before {
