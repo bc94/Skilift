@@ -1,4 +1,6 @@
-package models;
+package controllers;
+
+import models.Liftstation;
 
 import java.util.Queue;
 

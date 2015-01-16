@@ -1,4 +1,6 @@
-package models;
+package controllers;
+
+import models.User;
 
 public class Usermanager {
 

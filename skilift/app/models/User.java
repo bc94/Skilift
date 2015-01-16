@@ -1,13 +1,21 @@
 package models;
 
+import controllers.Backend;
+import controllers.Request;
+import play.db.ebean.Model;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.IdClass;
 import java.util.List;
 
-public class User {
+@Entity
+public class User extends Model {
 
-	private String mail;
-	private String password;
-	private String paymentMethod;
-	private List<Liftstation> favourites;
+	@Id
+	public String mail;
+	public String password;
+	public String paymentMethod;
+	public List<Liftstation> favourites;
 	private Backend backend;
 	
 	
@@ -18,39 +26,6 @@ public class User {
 		this.paymentMethod = paymentMethod;
 		favourites = backend.getFavourites(this);
 	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
-
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
-
-	public List<Liftstation> getFavourites() {
-		return favourites;
-	}
-
-	public void setFavourites(List<Liftstation> favourites) {
-		this.favourites = favourites;
-	}
-
 
 	public void changePW(String oldPW, String newPW) {
 		// TODO Auto-generated method stub

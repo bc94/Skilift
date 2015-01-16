@@ -1,4 +1,7 @@
-package models;
+package controllers;
+
+import models.Liftstation;
+import models.User;
 
 import java.util.List;
 
@@ -6,7 +9,7 @@ public interface Backend {
 	
 	void registerUser(User user);
 	
-	boolean isRegistered(User user);
+	boolean isRegistered(String email);
 	
 	Liftstation getStation(String name);
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true">  
-  <interface id="1" language="java" name="models.Backend" project="play_project" 
+  <interface id="1" language="java" name="controllers.Backend" project="play_project"
     file="/play_project/app/models/Backend.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="116" y="162"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -19,7 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="models.Liftmanager" project="play_project" 
+  <class id="3" language="java" name="controllers.Liftmanager" project="play_project"
     file="/play_project/app/models/Liftmanager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="91" y="413"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -37,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="models.Request" project="play_project" 
+  <class id="5" language="java" name="controllers.Request" project="play_project"
     file="/play_project/app/models/Request.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="594" y="677"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -55,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="models.Usermanager" project="play_project" 
+  <class id="7" language="java" name="controllers.Usermanager" project="play_project"
     file="/play_project/app/models/Usermanager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="685" y="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
