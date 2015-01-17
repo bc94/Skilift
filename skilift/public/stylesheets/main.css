@@ -4,8 +4,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1,h2 {
-  text-align:center;
+.headline{
+	background: #CEECF5;
+	width: 420;
+}
+.headline h1 {
+ 	text-align: center;
+}
+
+.headline h2{
+	text-align: center;
 }
 
 #cssmenu {
@@ -298,7 +306,7 @@ input[type=submit]:active {
 #list ul {
     padding:0;
     list-style-type: none;
-	width: 450px;
+	width: 420px;
 }
 
 #list h3 {
