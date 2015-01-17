@@ -2,11 +2,11 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background: #EFFBFB;
 }
 
 .headline{
-	background: #CEECF5;
-	width: 420;
+
 }
 .headline h1 {
  	text-align: center;
@@ -293,15 +293,11 @@ input[type=submit]:active {
 
 #list {
 
-	background: #EFFBFB;
 	width: 400;
 	height: 300;
 
 }
 
-#list div {
-	margin: 20px;
-}
 
 #list ul {
     padding:0;
