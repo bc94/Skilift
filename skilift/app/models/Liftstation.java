@@ -26,6 +26,8 @@ public class Liftstation extends Model {
 		barriers = list;
 	}
 
-
+	public static Finder<Integer,Liftstation> find = new Finder<Integer,Liftstation>(
+			Integer.class, Liftstation.class
+	);
 
 }

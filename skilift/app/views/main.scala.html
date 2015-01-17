@@ -7,41 +7,19 @@
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+        <!-- <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script> -->
     </head>
     <body>
         <div id='cssmenu'>
         <ul>
-            <li class='active'><a href='#'><span>Home</span></a></li>
-            <li><a href='#'><span>Favourites</span></a></li>
-            <li><a href='#'><span>Search</span></a></li>
+            <li class='active'><a href='/'><span>Home</span></a></li>
+            <li><a href='favourites'><span>Favourites</span></a></li>
+            <li><a href='search'><span>Search</span></a></li>
             <li class='last'><a href='#'><span>Account</span></a></li>
         </ul>
     	</div>
     	
-    	<div id='list'>
-		<ul>
-		<li>
-		<img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
-		<h3>Headline</h3>
-		<p>Test</p>
-		</li>
-		
-		<li>
-		<img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
-		<h3>Headline</h3>
-		<p>Test</p>
-		</li>
-		
-		<li>
-		<img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
-		<h3>Headline</h3>
-		<p>Test</p>
-		</li>
-		
-		</ul>
-		
-		</div>
+
     	
         @content
         <div id="footer">

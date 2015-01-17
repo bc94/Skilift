@@ -1,13 +1,7 @@
 package models;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.List;
 
 import com.avaje.ebean.Ebean;
@@ -16,7 +10,7 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-/** this class is to be replaced */
+
 public class Persistence implements Backend {
 		
 	private String dbname;

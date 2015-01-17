@@ -32,7 +32,11 @@ public class User extends Model {
 
 	}
 
-	
+	public static Finder<String,User> find = new Finder<String,User>(
+			String.class, User.class
+	);
+
+
 	public void changePayment(String pm) {
 		// TODO Auto-generated method stub
 
