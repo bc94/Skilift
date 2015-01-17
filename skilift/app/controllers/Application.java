@@ -5,6 +5,7 @@ import models.User;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
+import java.io.*;
 
 import views.html.*;
 
@@ -15,7 +16,8 @@ public class Application extends Controller {
     static Form<User> registerForm = Form.form(User.class);
 
     public static Result index() {
-        return ok(index.render("Skilift"));
+
+        return ok(index.render("Skilift", Liftstation.find.all()));
     }
 
     public static Result login() {

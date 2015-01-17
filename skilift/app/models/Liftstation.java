@@ -1,12 +1,17 @@
 package models;
 
 import play.db.ebean.Model;
+import java.io.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.List;
+import jxl.*;
+import java.util.List;
+import java.util.ArrayList;
+import jxl.read.biff.BiffException;
 
 @Entity
 public class Liftstation extends Model {
@@ -19,8 +24,9 @@ public class Liftstation extends Model {
 	public Integer capacity;
 	private List<Barrier> barriers;
 	
-	public Liftstation(String n, String p, String t, Integer c, List<Barrier> list){
+	public Liftstation(Integer id, String n, String p, String t, Integer c, List<Barrier> list){
 		
+		ID = id;
 		name = n;
 		plz = p;
 		type = t;
@@ -34,5 +40,39 @@ public class Liftstation extends Model {
 
 	public static List<Liftstation> findForName(String name) {
 		return Liftstation.find.where().like("name",name+"%").findList();
+	}
+	
+	public static void readXLSTable(File table){
+		
+		try{
+				Sheet skilifts = Workbook.getWorkbook(table).getSheet(0);
+				Cell cellName, cellID, cellPlz, cellType, cellCapacity;
+				String name, plz, type;
+				Integer id, capacity;
+				for(int n = skilifts.getRows(), i = 3; i<n;i++){
+					cellID = skilifts.getCell(1,i);
+					cellName = skilifts.getCell(0,i);
+					cellPlz = skilifts.getCell(2,i);
+					cellType = skilifts.getCell(10,i);
+					cellCapacity = skilifts.getCell(14,i);
+					id = Integer.parseInt(cellID.getContents());
+					name = cellName.getContents();
+					plz = cellPlz.getContents();
+					type = cellType.getContents();
+					capacity = Integer.parseInt(cellCapacity.getContents());
+					new Liftstation(id, name, plz, type, capacity, new ArrayList<Barrier>()).save();
+				 }
+		}catch (IndexOutOfBoundsException e){
+			e.printStackTrace();
+		}catch (BiffException e) {
+			e.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public String getName(){
+		
+		return name;
 	}
 }
