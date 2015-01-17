@@ -2,23 +2,30 @@ package models;
 
 import controllers.Backend;
 import controllers.Request;
+import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.IdClass;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class User extends Model {
 
 	@Id
+	@Required
 	public String mail;
+	@Required
 	public String password;
 	public String paymentMethod;
+	@ManyToMany(cascade = CascadeType.REMOVE)
 	public List<Liftstation> favourites;
 	private Backend backend;
-	
-	
+
+	public static void create(User user) {
+		user.save();
+	}
+
 	public User(String mail, String password, String paymentMethod) {
 		super();
 		this.mail = mail;
@@ -26,6 +33,8 @@ public class User extends Model {
 		this.paymentMethod = paymentMethod;
 		favourites = backend.getFavourites(this);
 	}
+
+
 
 	public void changePW(String oldPW, String newPW) {
 		// TODO Auto-generated method stub

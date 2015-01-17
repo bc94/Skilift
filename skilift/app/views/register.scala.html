@@ -1,0 +1,17 @@
+@(registerForm: Form[User])
+
+@import helper._
+
+@main("Register for Skilift") {
+
+	<h1>Register</h1>
+
+	@form(routes.Application.newUser()) {
+
+			@inputText(registerForm("email adress:"))
+			@inputPassword(registerForm("password:"))
+			<input type="submit" value="Register">
+
+	}
+}
+

@@ -1,4 +1,4 @@
-@(message:String)
+@(message:String,stations: List[Liftstation])
 
 
 @main(message) {
@@ -6,4 +6,17 @@
 	<form id="search">
 		<input type="search" placeholder="Search">
 	</form>
+	<div id="list">
+	<ul>
+	@for(station <- stations) {
+
+		<li>
+			<img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
+			<h2>@station.name</h2>
+			<h3>capacity: @station.capacity</h3>
+		</li>
+
+	}
+	</ul>
+	</div>
 }

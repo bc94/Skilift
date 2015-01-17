@@ -2,8 +2,10 @@ package models;
 
 import play.db.ebean.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
@@ -30,4 +32,7 @@ public class Liftstation extends Model {
 			Integer.class, Liftstation.class
 	);
 
+	public static List<Liftstation> findForName(String name) {
+		return Liftstation.find.where().like("name",name+"%").findList();
+	}
 }
