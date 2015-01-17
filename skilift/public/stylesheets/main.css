@@ -5,15 +5,8 @@ body {
   background: #EFFBFB;
 }
 
-.headline{
-
-}
-.headline h1 {
+#headline h1,h2 {
  	text-align: center;
-}
-
-.headline h2{
-	text-align: center;
 }
 
 #cssmenu {
@@ -292,10 +285,8 @@ input[type=submit]:active {
 }
 
 #list {
-
 	width: 400;
 	height: 300;
-
 }
 
 
@@ -331,7 +322,7 @@ input[type=submit]:active {
 input[type=search] {
   border: solid 1px #ccc;
   padding: 9px 10px 9px 32px;
-  width: 70px;
+  width: 150px;
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
   border-radius: 10em;
@@ -341,11 +332,15 @@ input[type=search] {
 }
 
 input[type=search]:focus {
-  width:130px;
+  width:200px;
   background-color: #fff;
 
 
   -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
   -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
   box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+#search {
+  text-align: center;
 }
