@@ -6,7 +6,7 @@
 create table liftstation (
   id                        integer not null,
   name                      varchar(255),
-  plz                       varchar(255),
+  plz                       integer,
   type                      varchar(255),
   capacity                  integer,
   constraint pk_liftstation primary key (id))

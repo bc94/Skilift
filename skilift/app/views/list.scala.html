@@ -1,0 +1,15 @@
+@(stations: List[Liftstation])
+
+<div id='list'>
+	<ul>
+	@for(station <- stations) {
+
+		<li>
+			<img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
+			<h3>@station.getName()</h3>
+			<p>capacity: @station.capacity</p>
+		</li>
+	}
+	</ul>
+
+</div>

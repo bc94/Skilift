@@ -1,12 +1,11 @@
 package models;
 
+import controllers.Barrier;
 import play.db.ebean.Model;
 import java.io.*;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import java.util.List;
 import jxl.*;
 import java.util.List;
@@ -17,15 +16,14 @@ import jxl.read.biff.BiffException;
 public class Liftstation extends Model {
 
 	@Id
-	public int ID;
+	public Integer ID;
 	public String name;
-	public String plz;
+	public Integer plz;
 	public String type;
 	public Integer capacity;
 	private List<Barrier> barriers;
 	
-	public Liftstation(Integer id, String n, String p, String t, Integer c, List<Barrier> list){
-		
+	public Liftstation(Integer id, String n, Integer p, String t, Integer c, List<Barrier> list) {
 		ID = id;
 		name = n;
 		plz = p;
@@ -43,12 +41,11 @@ public class Liftstation extends Model {
 	}
 	
 	public static void readXLSTable(File table){
-		
 		try{
 				Sheet skilifts = Workbook.getWorkbook(table).getSheet(0);
 				Cell cellName, cellID, cellPlz, cellType, cellCapacity;
-				String name, plz, type;
-				Integer id, capacity;
+				String name,type;
+				Integer id, plz, capacity;
 				for(int n = skilifts.getRows(), i = 3; i<n;i++){
 					cellID = skilifts.getCell(1,i);
 					cellName = skilifts.getCell(0,i);
@@ -57,9 +54,11 @@ public class Liftstation extends Model {
 					cellCapacity = skilifts.getCell(14,i);
 					id = Integer.parseInt(cellID.getContents());
 					name = cellName.getContents();
-					plz = cellPlz.getContents();
+					if (cellPlz.getContents().isEmpty()) continue;
+					else plz = Integer.parseInt(cellPlz.getContents());
 					type = cellType.getContents();
-					capacity = Integer.parseInt(cellCapacity.getContents());
+					if (cellCapacity.getContents().isEmpty()) continue;
+					else capacity = Integer.parseInt(cellCapacity.getContents());
 					new Liftstation(id, name, plz, type, capacity, new ArrayList<Barrier>()).save();
 				 }
 		}catch (IndexOutOfBoundsException e){

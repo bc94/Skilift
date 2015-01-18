@@ -5,9 +5,10 @@ import play.*;
 
 public class Global extends GlobalSettings{
 
+
 	@Override
 	public void onStart(Application app) {
-        
-    	Liftstation.readXLSTable(new File("/play_project/Aufstiegshilfen.xls"));
+       if (Liftstation.find.findRowCount() == 0)
+    		Liftstation.readXLSTable(new File(Play.application().path().getParent() + "/Aufstiegshilfen.xls"));
     }
 }
