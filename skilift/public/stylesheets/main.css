@@ -296,8 +296,13 @@ input[type=submit]:active {
 	width: 420px;
 }
 
+#list h2 {
+  font: bold 18px/1.5 Helvetica, Verdana, sans-serif;
+  text-align: left;
+}
+
 #list h3 {
-	font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+	font: bold 15px/1.5 Helvetica, Verdana, sans-serif;
 }
 
 #list li img {
@@ -346,7 +351,7 @@ input[type=search]:focus {
 }
 
 .styled-select.slate {
-
+  text-align: center;
    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
    height: 40px;
    width: 240px;

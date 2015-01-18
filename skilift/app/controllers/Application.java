@@ -15,6 +15,8 @@ public class Application extends Controller {
 
     static Form<User> registerForm = Form.form(User.class);
 
+    static User dummy = null;
+
     public static Result index() {
 
         return ok(index.render("Skilift", Liftstation.find.all()));
@@ -25,7 +27,8 @@ public class Application extends Controller {
     }
 
     public static Result favourites() {
-        return ok(favourites.render("Skilift favourites"));
+        if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
+        return ok(favourites.render("Skilift favourites",dummy.favourites));
     }
 
     public static Result search() { return ok(search.render("search for stations",new ArrayList<>())); }
@@ -47,5 +50,10 @@ public class Application extends Controller {
     }
     public static Result registerScreen() {
         return ok(register.render(registerForm));
+    }
+
+    public static Result jump(Integer LiftstationID) {
+        Liftstation station = Liftstation.find.byId(LiftstationID);
+        return ok(jump.render("jump the queue!",station));
     }
 }

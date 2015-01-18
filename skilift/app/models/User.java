@@ -7,6 +7,7 @@ import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,6 @@ public class User extends Model {
 	public String paymentMethod;
 	@ManyToMany(cascade = CascadeType.REMOVE)
 	public List<Liftstation> favourites;
-	private Backend backend;
 
 	public static void create(User user) {
 		user.save();
@@ -31,7 +31,7 @@ public class User extends Model {
 		this.mail = mail;
 		this.password = password;
 		this.paymentMethod = paymentMethod;
-		favourites = backend.getFavourites(this);
+		favourites = new ArrayList<>();
 	}
 
 

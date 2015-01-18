@@ -1,22 +1,11 @@
-@(message: String)
+@(message: String, stations: List[Liftstation])
 
 @main(message) {
     <div id="headline">
         <h2>Your favourite liftstations:</h2>
     </div>
 
-    <div id='list'>
-        <ul>
-
-            <li>
-                <img src="http://images.snow-online.de/2010-2011/oesterreich/Tirol/skigebiet-HochfuegenHochzillertalThebestconnection//Hochfuegen-startet-am-20112010_0_500.jpg" width="200" height="150">
-                <h3>Headline</h3>
-                <p>Test</p>
-            </li>
-
-        </ul>
-
-    </div>
+    @list(stations)
 
 
 }

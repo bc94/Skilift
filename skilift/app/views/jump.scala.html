@@ -3,17 +3,16 @@
 @main(message){
 
 	<div class="styled-select slate">
+		<form name='add' method="post">
 		<h2>Choose the number of seats:</h2>
-  		<select>
-    		<option>1</option>
-   			<option>2</option>
-   			<option>3</option>
-   			<option>4</option>
-   			<option>5</option>
-   			<option>6</option>
-   			<option>7</option>
-   			<option>8</option>
+			<select>
+			@for(i <- 1 to station.capacity) {
+				<option value ='@i'>@i</option>
+			}
+
   		</select>
-  		<a href="#" class="myButton">Rent</a>	
+		<br><br>
+			<input class="myButton" type='submit' name='submit' value="jump the queue"/>
+		</form>
 	</div>
 }
