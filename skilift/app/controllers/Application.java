@@ -3,6 +3,7 @@ package controllers;
 import models.Liftstation;
 import models.User;
 import play.*;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.*;
 import java.io.*;
@@ -28,6 +29,13 @@ public class Application extends Controller {
 
     public static Result favourites() {
         if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
+        return ok(favourites.render("Skilift favourites",dummy.favourites));
+    }
+
+    public static Result addFavourite(Integer LiftstationID) {
+        if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
+        Liftstation station = Liftstation.find.byId(LiftstationID);
+        dummy.addFavourite(station);
         return ok(favourites.render("Skilift favourites",dummy.favourites));
     }
 
