@@ -42,11 +42,11 @@ public class User extends Model {
 		if(oldPW.equals(password)){
 			
 			password = newPW;
-			save();
+			update();
 			return ("Successfully changed password!");
 		}else{
 			
-			save();
+			update();
 			return ("Wrong password, try again.");
 		}
 
@@ -60,20 +60,20 @@ public class User extends Model {
 	public void changePayment(String pm) {
 		
 		paymentMethod = pm;
-		save();
+		update();
 	}
 
 	public void addFavourite(Liftstation ls) {
 		
 		favourites.add(ls);
-		save();
+		update();
 	}
 
 	
 	public void removeFavourite(Liftstation ls) {
 		
 		favourites.remove(ls);
-		save();
+		update();
 
 	}
 	
