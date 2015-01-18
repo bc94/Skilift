@@ -31,13 +31,21 @@ public class User extends Model {
 		this.mail = mail;
 		this.password = password;
 		this.paymentMethod = paymentMethod;
-		favourites = new ArrayList<>();
+		favourites = new ArrayList<Liftstation>();
 	}
 
 
 
-	public void changePW(String oldPW, String newPW) {
-		// TODO Auto-generated method stub
+	public String changePW(String oldPW, String newPW) {
+
+		if(oldPW.equals(password)){
+			
+			password = newPW;
+			return ("Successfully changed password!");
+		}else{
+			
+			return ("Wrong password, try again.");
+		}
 
 	}
 
@@ -47,28 +55,21 @@ public class User extends Model {
 
 
 	public void changePayment(String pm) {
-		// TODO Auto-generated method stub
-
+		
+		paymentMethod = pm;
 	}
 
 	public void addFavourite(Liftstation ls) {
-		// TODO Auto-generated method stub
-
+		
+		favourites.add(ls);
+		save();
 	}
 
 	
 	public void removeFavourite(Liftstation ls) {
-		// TODO Auto-generated method stub
+		
+		favourites.remove(ls);
+		save();
 
-	}
-
-	public void giveFeedback(String fb) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Request rentRequest(Liftstation ls) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
