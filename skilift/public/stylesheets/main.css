@@ -344,3 +344,24 @@ input[type=search]:focus {
 #search {
   text-align: center;
 }
+
+.styled-select.slate {
+
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 40px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 30px;
+   height: 40px;
+   width: 268px;
+}
+
+.styled-select.slate h2 {
+
+	text-align: center;	
+	font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+	padding: 10px;
+}
