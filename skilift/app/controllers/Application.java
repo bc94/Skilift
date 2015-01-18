@@ -58,11 +58,11 @@ public class Application extends Controller {
         Form<User> filledForm = registerForm.bindFromRequest();
         if(filledForm.hasErrors()) {
             return badRequest(
-                //    views.html.register.render(registerForm)
+               // views.html.register.render(registerForm)
             );
         } else {
             User.create(filledForm.get());
-            return redirect(routes.Application.index());
+            return redirect((Call) Application.index());
         }
     }
 

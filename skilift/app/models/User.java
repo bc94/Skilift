@@ -1,7 +1,6 @@
 package models;
 
 import controllers.Backend;
-import controllers.Request;
 import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
@@ -40,7 +39,6 @@ public class User extends Model {
 	public String changePW(String oldPW, String newPW) {
 
 		if(oldPW.equals(password)){
-			
 			password = newPW;
 			update();
 			return ("Successfully changed password!");

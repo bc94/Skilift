@@ -1,4 +1,7 @@
 import static org.junit.Assert.*;
+import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
+import static play.test.Helpers.running;
 
 import java.io.*;
 import org.junit.After;
@@ -18,51 +21,61 @@ import java.util.ArrayList;
 
 public class UserTest {
 
-	static User user = new User("testMail", "abcd", "paypal");
+	static User user;
 	
-	@BeforeClass
-	public static void setUp() throws Exception{
-		
-		User.create(user);
-	}
-	
+
 	@Test
 	public void passChange() {
-		
-		assertEquals(user.changePW("abcd", "efgh"), "Successfully changed password!");
-		assertEquals(user.changePW("abcd", "efgh"), "Wrong password, try again.");
+		running(fakeApplication(inMemoryDatabase("test")), () -> {
+			user = new User("testMail", "abcd", "paypal");
+			assertEquals(user.changePW("abcd", "efgh"), "Successfully changed password!");
+			assertEquals(user.changePW("abcd", "efgh"), "Wrong password, try again.");
+		});
+
 	}
 	
 	@Test
 	public void payChange() {
-		
-		user.changePayment("test");
-		assertEquals(user.paymentMethod, "test");
+		running(fakeApplication(inMemoryDatabase("test")), () -> {
+			user = new User("testMail", "abcd", "paypal");
+			user.changePayment("test");
+			assertEquals(user.paymentMethod, "test");
+		});
+
 	}
 	
 	@Test 
 	public void addFav(){
-		
-		Liftstation ls = new Liftstation(1, "Teststation", 6020, "Testtype", 2, new ArrayList<Barrier>());
-		user.addFavourite(ls);
-		assertEquals(ls, user.favourites.get(0));
+		running(fakeApplication(inMemoryDatabase("test")), () -> {
+			user = new User("testMail", "abcd", "paypal");
+			Liftstation ls = new Liftstation(1, "Teststation", 6020, "Testtype", 2, new ArrayList<Barrier>());
+			user.addFavourite(ls);
+			assertEquals(ls, user.favourites.get(0));
+		});
+
 	}
 	
 	@Test
 	public void remFav(){
-		
-		assertTrue(user.favourites.isEmpty());
-		Liftstation ls = new Liftstation(1, "Teststation", 6020, "Testtype", 2, new ArrayList<Barrier>());
-		user.addFavourite(ls);
-		assertFalse(user.favourites.isEmpty());
-		user.removeFavourite(ls);
-		assertTrue(user.favourites.isEmpty());
+		running(fakeApplication(inMemoryDatabase("test")), () -> {
+			user = new User("testMail", "abcd", "paypal");
+			assertTrue(user.favourites.isEmpty());
+			Liftstation ls = new Liftstation(1, "Teststation", 6020, "Testtype", 2, new ArrayList<Barrier>());
+			user.addFavourite(ls);
+			assertFalse(user.favourites.isEmpty());
+			user.removeFavourite(ls);
+			assertTrue(user.favourites.isEmpty());
+		});
+
 	}
 	
 	@Test
 	public void findTest() {
-		
-		User test = user.find.ref(user.mail);
-		assertEquals(user, test);
+		running(fakeApplication(inMemoryDatabase("test")), () -> {
+			user = new User("testMail", "abcd", "paypal");
+			User test = user.find.ref(user.mail);
+			assertEquals(user, test);
+		});
+
 	}
 }
