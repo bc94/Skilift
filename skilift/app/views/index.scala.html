@@ -1,4 +1,4 @@
-@(message: String, stations: List[Liftstation])
+@(message: String, stations: List[Liftstation], user: User)
 
 @main(message) {
 	<div id="headline">
@@ -6,7 +6,7 @@
   		<h2>Skistations nearby:</h2>
     </div>
 
-	@list(stations)
+	@list(stations, user)
 
 
 }

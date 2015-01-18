@@ -1,4 +1,4 @@
-@(message:String,stations: List[Liftstation])
+@(message:String,stations: List[Liftstation], user: User)
 
 
 @main(message) {
@@ -6,5 +6,5 @@
 	<form id="search">
 		<input type="search" placeholder="Search">
 	</form>
-	@list(stations)
+	@list(stations, user)
 }

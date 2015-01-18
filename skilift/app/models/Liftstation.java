@@ -2,14 +2,19 @@ package models;
 
 import controllers.Barrier;
 import play.db.ebean.Model;
+
 import java.io.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 import java.util.List;
+
 import jxl.*;
+
 import java.util.List;
 import java.util.ArrayList;
+
 import jxl.read.biff.BiffException;
 
 @Entity
@@ -75,6 +80,7 @@ public class Liftstation extends Model {
 		}
 	}
 	
+    
 	public String getName(){
 		
 		return name;

@@ -7,6 +7,7 @@ import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,4 +76,10 @@ public class User extends Model {
 		save();
 
 	}
+	
+    public Boolean isFav(Liftstation station){
+    	
+    	return favourites.contains(station);
+    		
+    }
 }

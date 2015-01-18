@@ -1,4 +1,4 @@
-@(stations: List[Liftstation])
+@(stations: List[Liftstation], user: User)
 
 <div id='list'>
 	<ul>
@@ -9,8 +9,11 @@
 			<h2>@station.getName()</h2>
 			<h3>PLZ: @station.plz</h3>
 			<h3>capacity: @station.capacity</h3>
-			<a href="/favourites/@station.ID" class="myButton">Add to favourites</a>
-
+			@if(user.isFav(station)){
+				<a href="/favourites/@station.ID/remove" class="myButton">Remove</a>
+			}else{
+				<a href="/favourites/@station.ID" class="myButton">Add to favourites</a>
+			}
 		</li>
 		</a>
 	}

@@ -19,8 +19,9 @@ public class Application extends Controller {
     static User dummy = null;
 
     public static Result index() {
-
-        return ok(index.render("Skilift", Liftstation.find.all()));
+    	
+    	if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
+        return ok(index.render("Skilift", Liftstation.find.all(), dummy));
     }
 
     public static Result login() {
@@ -29,17 +30,29 @@ public class Application extends Controller {
 
     public static Result favourites() {
         if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
-        return ok(favourites.render("Skilift favourites",dummy.favourites));
+        return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
     }
 
     public static Result addFavourite(Integer LiftstationID) {
         if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
         Liftstation station = Liftstation.find.byId(LiftstationID);
         dummy.addFavourite(station);
-        return ok(favourites.render("Skilift favourites",dummy.favourites));
+        return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
+    }
+    
+    public static Result removeFavourite(Integer LiftstationID) {
+    	
+    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
+    	Liftstation station = Liftstation.find.byId(LiftstationID);
+    	dummy.removeFavourite(station);
+    	return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
     }
 
-    public static Result search() { return ok(search.render("search for stations",new ArrayList<>())); }
+    public static Result search() { 
+    	
+    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
+    	return ok(search.render("search for stations",new ArrayList<>(), dummy)); 
+    }
 
     public static Result newUser() {
         Form<User> filledForm = registerForm.bindFromRequest();
@@ -54,7 +67,8 @@ public class Application extends Controller {
     }
 
     public static Result searchLiftstations(String name) {
-        return ok(search.render("search for stations",Liftstation.findForName(name)));
+    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
+        return ok(search.render("search for stations",Liftstation.findForName(name), dummy));
     }
     public static Result registerScreen() {
         return ok(register.render(registerForm));
