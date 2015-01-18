@@ -1,11 +1,15 @@
 import static org.junit.Assert.*;
 
+import java.io.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
 import models.User;
 import models.Liftstation;
 import controllers.Barrier;
+
 import java.util.ArrayList;
 /**
  * 
@@ -14,8 +18,14 @@ import java.util.ArrayList;
 
 public class UserTest {
 
-	User user = new User("testMail", "abcd", "paypal");
-
+	static User user = new User("testMail", "abcd", "paypal");
+	
+	@BeforeClass
+	public static void setUp() throws Exception{
+		
+		User.create(user);
+	}
+	
 	@Test
 	public void passChange() {
 		
@@ -48,5 +58,11 @@ public class UserTest {
 		user.removeFavourite(ls);
 		assertTrue(user.favourites.isEmpty());
 	}
-
+	
+	@Test
+	public void findTest() {
+		
+		User test = user.find.ref(user.mail);
+		assertEquals(user, test);
+	}
 }

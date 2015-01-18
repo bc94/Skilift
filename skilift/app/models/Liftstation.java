@@ -31,6 +31,11 @@ public class Liftstation extends Model {
 		capacity = c;
 		barriers = list;
 	}
+	
+	public static void create(Liftstation station){
+		
+		station.save();
+	}
 
 	public static Finder<Integer,Liftstation> find = new Finder<Integer,Liftstation>(
 			Integer.class, Liftstation.class
