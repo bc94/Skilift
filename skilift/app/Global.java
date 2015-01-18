@@ -1,6 +1,7 @@
 import java.io.File;
 
 import models.Liftstation;
+import models.User;
 import play.*;
 
 public class Global extends GlobalSettings{
