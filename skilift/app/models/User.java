@@ -1,6 +1,7 @@
 package models;
 
-import controllers.Backend;
+import com.avaje.ebean.annotation.ConcurrencyMode;
+import com.avaje.ebean.annotation.EntityConcurrencyMode;
 import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+
 public class User extends Model {
 
 	@Id
@@ -64,7 +66,7 @@ public class User extends Model {
 	public void addFavourite(Liftstation ls) {
 		
 		favourites.add(ls);
-		update();
+		save();
 	}
 
 	

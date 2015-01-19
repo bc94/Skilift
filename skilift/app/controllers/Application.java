@@ -12,9 +12,11 @@ import views.html.*;
 
 import java.util.ArrayList;
 
+import static play.data.Form.form;
+
 public class Application extends Controller {
 
-    static Form<User> registerForm = Form.form(User.class);
+    static Form<User> registerForm = form(User.class);
 
     static User dummy = null;
 
@@ -34,7 +36,7 @@ public class Application extends Controller {
     }
 
     public static Result addFavourite(Integer LiftstationID) {
-        if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
+        if (dummy == null) dummy = new User("dummy@dummymail.com","1234","paypal");
         Liftstation station = Liftstation.find.byId(LiftstationID);
         dummy.addFavourite(station);
         return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
@@ -68,6 +70,8 @@ public class Application extends Controller {
 
     public static Result searchLiftstations(String name) {
     	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
+        //DynamicForm requestData = form().bindFromRequest();
+        //String name = requestData.get("Search");
         return ok(search.render("search for stations",Liftstation.findForName(name), dummy));
     }
     public static Result registerScreen() {
