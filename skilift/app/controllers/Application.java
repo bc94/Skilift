@@ -16,7 +16,7 @@ import static play.data.Form.form;
 
 public class Application extends Controller {
 
-    static Form<User> registerForm = form(User.class);
+    static Form<User> userForm = form(User.class);
 
     static User dummy = null;
 
@@ -57,14 +57,29 @@ public class Application extends Controller {
     }
 
     public static Result newUser() {
-        Form<User> filledForm = registerForm.bindFromRequest();
+        Form<User> filledForm = userForm.bindFromRequest();
         if(filledForm.hasErrors()) {
             return badRequest(
-               // views.html.register.render(registerForm)
+                views.html.register.render(userForm)
             );
         } else {
             User.create(filledForm.get());
-            return redirect((Call) Application.index());
+
+            return redirect(controllers.routes.Application.index());
+        }
+    }
+
+    public static Result loginUser() {
+        Form<User> filledForm = userForm.bindFromRequest();
+        User user = filledForm.get();
+        if(filledForm.hasErrors()) {
+            System.out.println("lol");
+            return badRequest(
+                    views.html.register.render(userForm)
+            );
+        } else {
+            session("connected",user.mail);
+            return redirect(controllers.routes.Application.index());
         }
     }
 
@@ -75,7 +90,7 @@ public class Application extends Controller {
         return ok(search.render("search for stations",Liftstation.findForName(name), dummy));
     }
     public static Result registerScreen() {
-        return ok(register.render(registerForm));
+        return ok(register.render(userForm));
     }
 
     public static Result jump(Integer LiftstationID) {

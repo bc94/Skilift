@@ -1,18 +1,15 @@
 package models;
 
-import com.avaje.ebean.annotation.ConcurrencyMode;
 import com.avaje.ebean.annotation.EntityConcurrencyMode;
 import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
 public class User extends Model {
 
 	@Id
@@ -36,7 +33,17 @@ public class User extends Model {
 		favourites = new ArrayList<Liftstation>();
 	}
 
+	public String validate() {
+		if (authenticate(mail, password)) {
+			return "Invalid email or password";
+		}
+		return null;
+	}
 
+	private boolean authenticate(String mail, String password) {
+		// TODO: db query
+		return false;
+	}
 
 	public String changePW(String oldPW, String newPW) {
 
