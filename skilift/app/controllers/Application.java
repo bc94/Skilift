@@ -51,7 +51,7 @@ public class Application extends Controller {
     public static Result search() { 
     	
     	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
-    	return ok(search.render("search for stations",new ArrayList<>(), dummy)); 
+    	return ok(search.render("search for stations", new ArrayList<Liftstation>(), dummy));
     }
 
     public static Result newUser() {
