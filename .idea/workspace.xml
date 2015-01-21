@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4e635c0-7db3-47cb-9980-4bee34a720c7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/skilift/app/views/account.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skilift/app/controllers/Application.java" afterPath="$PROJECT_DIR$/skilift/app/controllers/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skilift/app/views/index.scala.html" afterPath="$PROJECT_DIR$/skilift/app/views/index.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skilift/app/views/jump.scala.html" afterPath="$PROJECT_DIR$/skilift/app/views/jump.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skilift/app/views/main.scala.html" afterPath="$PROJECT_DIR$/skilift/app/views/main.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/skilift/conf/routes" afterPath="$PROJECT_DIR$/skilift/conf/routes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="skilift.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +86,8 @@
       <file leaf-file-name="jump.scala.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/skilift/app/views/jump.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36933047" vertical-offset="0" max-vertical-offset="926">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.31101513" vertical-offset="0" max-vertical-offset="926">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -654,12 +648,12 @@
       <workItem from="1421832885520" duration="719000" />
       <workItem from="1421848392558" duration="976000" />
       <workItem from="1421849777431" duration="2727000" />
-      <workItem from="1421869211468" duration="2885000" />
+      <workItem from="1421869211468" duration="3184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14330000" />
+    <option name="totallyTimeSpent" value="14629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -1112,8 +1106,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/skilift/app/views/jump.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36933047" vertical-offset="0" max-vertical-offset="926">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.31101513" vertical-offset="0" max-vertical-offset="926">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding />
         </state>
       </provider>
