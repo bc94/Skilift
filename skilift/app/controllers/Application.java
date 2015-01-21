@@ -82,4 +82,9 @@ public class Application extends Controller {
         Liftstation station = Liftstation.find.byId(LiftstationID);
         return ok(jump.render("jump the queue!",station));
     }
+
+    public static Result account(){
+        if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
+        return ok(account.render("account settings", dummy));
+    }
 }

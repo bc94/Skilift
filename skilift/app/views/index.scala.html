@@ -1,9 +1,9 @@
 @(message: String, stations: List[Liftstation], user: User)
 
 @main(message) {
-	<div id="headline">
+	<div data-role="header">
     	<h1>Welcome to Skilift!</h1>
-  		<h2>Skistations nearby:</h2>
+  		<h3>Skistations nearby:</h3>
     </div>
 
 	@list(stations, user)
