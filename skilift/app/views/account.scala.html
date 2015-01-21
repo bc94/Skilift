@@ -1,16 +1,20 @@
 @(message: String, user: User)
 
 @main(message) {
-    <div data-role="page" id="default" >
+    <div data-role="header">
+        <h1>Account settings</h1>
+    </div>
+    <div id="default" data-role="main" class="ui-content">
+        <ul data-role="listview">
         <li>
-            <a href="#passchange">Change password</a>
+            <a data-ajax="false" href="#passchange" class="ui-btn">Change password</a>
         </li>
         <li>
-            <a href="#paychange">Change payment method</a>
+            <a data-ajax="false" href="#paychange" clasS="ui-btn">Change payment method</a>
         </li>
         <li>
-            <a href="#logout">Log out</a>
+            <a data-ajax="false" href="/login" class="ui-btn">Log out</a>
         </li>
-
+        </ul>
     </div>
 }
