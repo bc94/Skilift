@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
 public class User extends Model {
 
 	@Id
@@ -66,7 +65,7 @@ public class User extends Model {
 	public void addFavourite(Liftstation ls) {
 		
 		favourites.add(ls);
-		save();
+		update();
 	}
 
 	
@@ -82,4 +81,18 @@ public class User extends Model {
     	return favourites.contains(station);
     		
     }
+
+	public static boolean authenticate(String email, String password) {
+		User wanted = User.find.byId(email);
+		if (wanted == null || wanted.password != password)
+			return false;
+		return true;
+	}
+
+	public String validate() {
+		if (User.find.byId(mail) == null) {
+			return "A user with this email was already registered";
+		}
+		return null;
+	}
 }
