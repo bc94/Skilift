@@ -16,75 +16,65 @@ import static play.data.Form.form;
 
 public class Application extends Controller {
 
-    static Form<User> registerForm = form(User.class);
-
-    static User dummy = null;
-
     public static Result index() {
-    	
-    	if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
-        return ok(index.render("Skilift", Liftstation.find.all(), dummy));
+
+        User user = getLoggedInUser();
+        return ok(index.render("Skilift", Liftstation.find.all(), user));
     }
 
-    public static Result login() {
-        return ok(login.render("Skilift login"));
-    }
-
-    public static Result favourites() {
-        if (dummy == null) dummy =  new User("dummy@dummymail.com","1234","paypal");
-        return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
-    }
-
-    public static Result addFavourite(Integer LiftstationID) {
-        if (dummy == null) dummy = new User("dummy@dummymail.com","1234","paypal");
-        Liftstation station = Liftstation.find.byId(LiftstationID);
-        dummy.addFavourite(station);
-        return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
-    }
-    
-    public static Result removeFavourite(Integer LiftstationID) {
-    	
-    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
-    	Liftstation station = Liftstation.find.byId(LiftstationID);
-    	dummy.removeFavourite(station);
-    	return ok(favourites.render("Skilift favourites",dummy.favourites, dummy));
-    }
-
-    public static Result search() { 
-    	
-    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
-    	return ok(search.render("search for stations", new ArrayList<Liftstation>(), dummy));
-    }
-
-    public static Result newUser() {
-        Form<User> filledForm = registerForm.bindFromRequest();
-        if(filledForm.hasErrors()) {
-            return badRequest(
-               // views.html.register.render(registerForm)
-            );
-        } else {
-            User.create(filledForm.get());
-            return redirect((Call) Application.index());
-        }
-    }
-
-    public static Result searchLiftstations(String name) {
-    	if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
-        //DynamicForm requestData = form().bindFromRequest();
-        //String name = requestData.get("Search");
-        return ok(search.render("search for stations",Liftstation.findForName(name), dummy));
-    }
-    public static Result registerScreen() {
-        return ok(register.render(registerForm));
-    }
-
+    @Security.Authenticated(Secured.class)
     public static Result jump(Integer LiftstationID) {
         Liftstation station = Liftstation.find.byId(LiftstationID);
-        return ok(jump.render("jump the queue!",station));
+        return ok(jump.render("jump the queue!", station));
     }
 
+    @Security.Authenticated(Secured.class)
+    public static Result favourites() {
+        User user = getLoggedInUser();
+        return ok(favourites.render("Skilift favourites",user.favourites, user));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result addFavourite(Integer LiftstationID) {
+        User user = getLoggedInUser();
+        Liftstation station = Liftstation.find.byId(LiftstationID);
+        user.addFavourite(station);
+        return ok(favourites.render("Skilift favourites", user.favourites, user));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result removeFavourite(Integer LiftstationID) {
+        User user = getLoggedInUser();
+
+        Liftstation station = Liftstation.find.byId(LiftstationID);
+        user.removeFavourite(station);
+        return ok(favourites.render("Skilift favourites",user.favourites, user));
+    }
+
+
+    public static Result search() {
+
+        User user = getLoggedInUser();
+    	return ok(search.render("search for stations", new ArrayList<Liftstation>(), user));
+    }
+
+
+    public static Result searchLiftstations(String name) {
+        User user = getLoggedInUser();
+        return ok(search.render("search for stations",Liftstation.findForName(name), user));
+    }
+
+
+    @Security.Authenticated(Secured.class)
     public static Result account(){
-        if (dummy == null) dummy = new User("dummy@dummymail.com", "1234", "paypal");
-        return ok(account.render("account settings", dummy));
+        User user = getLoggedInUser();
+        return ok(account.render("account settings", user));
+    }
+
+    private static User getLoggedInUser() {
+        String email;
+        if ((email = session().get("email")) != null)
+            return User.find.byId(email);
+        return null;
     }
 }

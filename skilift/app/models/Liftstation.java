@@ -28,15 +28,13 @@ public class Liftstation extends Model {
 	public Integer plz;
 	public String type;
 	public Integer capacity;
-	private List<Barrier> barriers;
 	
-	public Liftstation(Integer id, String n, Integer p, String t, Integer c, List<Barrier> list) {
+	public Liftstation(Integer id, String n, Integer p, String t, Integer c) {
 		ID = id;
 		name = n;
 		plz = p;
 		type = t;
 		capacity = c;
-		barriers = list;
 	}
 	
 	public static void create(Liftstation station){
@@ -71,7 +69,7 @@ public class Liftstation extends Model {
 					type = cellType.getContents();
 					if (cellCapacity.getContents().isEmpty()) continue;
 					else capacity = Integer.parseInt(cellCapacity.getContents());
-					new Liftstation(id, name, plz, type, capacity, new ArrayList<Barrier>()).save();
+					new Liftstation(id, name, plz, type, capacity).save();
 				 }
 		}catch (IndexOutOfBoundsException e){
 			e.printStackTrace();
