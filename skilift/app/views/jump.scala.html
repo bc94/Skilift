@@ -2,7 +2,7 @@
 
 @main(message){
 
-		<div data-role="page" id="jump">
+		<div id="jump" data-role="main" data-type="ui-content">
 		<form name='add' method="post">
 			<div data-role="header">
 				<h2>Choose the number of seats:</h2>
@@ -16,20 +16,16 @@
 
   			</select>
 			<!--<input class="myButton" type='submit' name='submit' value="jump the queue"/>-->
-			<a href="#confirm" class="ui-btn">Jump the queue</a>
+			<a  data-ajax="false" href="#confirm" class="ui-btn">Jump the queue</a>
 			</div>
 		</form>
 	</div>
 }
 
-	<div data-role="page" data-dialog="true" id="confirm">
-
+	<div data-dialog="true" id="confirm" >
 		<div data-role="main" data-type="ui-content">
-			<p>
-				Please confirm that you really want to rent the seats!
-			</p>
-			<a href="#confirm" class="ui-btn">Confirm</a>
-			<a href="#jump" class="ui-btn">Cancel</a>
+			<p>Please confirm that you really want to rent the seats!</p>
+			<a data-ajax="false" href="#confirm" class="ui-shadow ui-btn">Confirm</a>
+			<a data-ajax="false" href="#jump" class="ui-btn">Cancel</a>
 		</div>
-
 	</div>

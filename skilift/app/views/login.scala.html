@@ -4,7 +4,10 @@
 
 @main(message) {
     @helper.form(routes.Usermanager.authenticateLogin) {
-        <h1>Sign in</h1>
+        <div>
+            <div data-role="main">
+             <h1>Sign in</h1>
+            </div>
 
         <p>
             <input type="email" name="email" placeholder="Email">
@@ -15,6 +18,7 @@
         <p>
             <button type="submit">Login</button>
         </p>
+        </div>
     }
     <a href="/register"><button type="button">Register</button></a>
 

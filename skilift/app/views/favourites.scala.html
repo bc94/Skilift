@@ -1,8 +1,8 @@
 @(message: String, stations: List[Liftstation], user: User)
 
 @main(message) {
-    <div id="headline">
-        <h2>Your favourite liftstations:</h2>
+    <div data-role="header">
+        <h1>Favourite Liftstations</h1>
     </div>
 
     @list(stations, user)
