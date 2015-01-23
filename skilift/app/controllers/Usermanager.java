@@ -15,14 +15,6 @@ import static play.data.Form.form;
 
 public class Usermanager extends Controller {
 
-	public static Result registerScreen() {
-		return play.mvc.Results.TODO;
-	}
-
-	public static Result login() {
-		return ok(login.render("Login to Skilift",form(Login.class)));
-	}
-
 	public static class Login {
 		public String email;
 		public String password;
@@ -36,10 +28,21 @@ public class Usermanager extends Controller {
 
 	}
 
+	public static Result login() {
+		return ok(login.render("Login to Skilift",form(Login.class)));
+	}
+
+	public static Result registerScreen() {
+		return ok(register.render("Register to Skilift",form(User.class)));
+	}
+
+
 	public static Result authenticateLogin() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
-		if (loginForm.hasErrors())
-			return badRequest(login.render("Login to Skilift",form(Login.class)));
+		if (loginForm.hasErrors()) {
+			System.out.println("lol");
+			return badRequest(login.render("Login to Skilift", form(Login.class)));
+		}
 		else {
 			session().clear();
 			session("email", loginForm.get().email);

@@ -14,7 +14,6 @@ GET         /favourites/:id               controllers.Application.addFavourite(i
 GET         /favourites/:id/remove        controllers.Application.removeFavourite(id: Int)
 GET         /search                       controllers.Application.searchLiftstations(name: String?="")
 GET         /account                      controllers.Application.account()
-GET         /register                     controllers.Application.registerScreen()
 GET         /jump/:id                     controllers.Application.jump(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path

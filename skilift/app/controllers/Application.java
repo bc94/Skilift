@@ -61,12 +61,7 @@ public class Application extends Controller {
 
     public static Result searchLiftstations(String name) {
         User user = getLoggedInUser();
-        //DynamicForm requestData = form().bindFromRequest();
-        //String name = requestData.get("Search");
         return ok(search.render("search for stations",Liftstation.findForName(name), user));
-    }
-    public static Result registerScreen() {
-        return ok(register.render("Register to Skilift",form(User.class)));
     }
 
 

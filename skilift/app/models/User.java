@@ -27,6 +27,10 @@ public class User extends Model {
 		user.save();
 	}
 
+	public User() {
+		favourites = new ArrayList<Liftstation>();
+	}
+
 	public User(String mail, String password, String paymentMethod) {
 		super();
 		this.mail = mail;
@@ -84,13 +88,13 @@ public class User extends Model {
 
 	public static boolean authenticate(String email, String password) {
 		User wanted = User.find.byId(email);
-		if (wanted == null || wanted.password != password)
+		if (wanted == null || !wanted.password.equals(password))
 			return false;
 		return true;
 	}
 
 	public String validate() {
-		if (User.find.byId(mail) == null) {
+		if (User.find.byId(mail) != null) {
 			return "A user with this email was already registered";
 		}
 		return null;
