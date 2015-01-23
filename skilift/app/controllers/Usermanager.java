@@ -19,12 +19,8 @@ public class Usermanager extends Controller {
 		return play.mvc.Results.TODO;
 	}
 
-	public static Result logout() {
-		session().clear();
-		flash("success", "You've been logged out");
-		return redirect(
-				routes.Usermanager.login()
-		);
+	public static Result login() {
+		return ok(login.render("Login to Skilift",form(Login.class)));
 	}
 
 	public static class Login {
@@ -39,8 +35,6 @@ public class Usermanager extends Controller {
 		}
 
 	}
-
-
 
 	public static Result authenticateLogin() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -64,23 +58,17 @@ public class Usermanager extends Controller {
 			);
 		} else {
 			User.create(registerForm.get());
-			return redirect((Call) Application.index());
+			return redirect(routes.Application.index());
 		}
 	}
 
-	public static Result login() {
-		return ok(login.render("Login to Skilift",form(Login.class)));
-	}
 
-
-
-
-	public void login(User user){
-		
-	}
-	
-	public void logout(User user){
-		
+	public static Result logout() {
+		session().clear();
+		flash("success", "You've been logged out");
+		return redirect(
+				routes.Usermanager.login()
+		);
 	}
 
 

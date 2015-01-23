@@ -9,10 +9,10 @@
 			<h2>@station.getName()</h2>
 			<h3>PLZ: @station.plz</h3>
 			<h3>capacity: @station.capacity</h3>
-			@if(user.isFav(station)){
-				<a href="/favourites/@station.ID/remove" class="myButton">Remove from Favourites</a>
-			}else{
+			@if(user == null || !user.isFav(station)){
 				<a href="/favourites/@station.ID" class="myButton">Add to favourites</a>
+			}else {
+				<a href="/favourites/@station.ID/remove" class="myButton">Remove from Favourites</a>
 			}
 		</li>
 		</a>
