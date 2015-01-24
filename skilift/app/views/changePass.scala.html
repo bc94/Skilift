@@ -1,0 +1,23 @@
+@(message:String, form: Form[Usermanager.PassChanger])
+@import views.html.helper.form
+
+@main(message) {
+    @helper.form(routes.Usermanager.authenticateChange) {
+
+        <div>
+            <div data-role="main">
+                <h1>Change password</h1>
+            </div>
+
+            <p>
+                <input type="password" name="oldPassword" placeholder="Enter current password">
+            </p>
+            <p>
+                <input type="password" name="newPassword" placeholder="Enter new password">
+            </p>
+            <p>
+                <button type="submit">Change</button>
+            </p>
+        </div>
+    }
+}

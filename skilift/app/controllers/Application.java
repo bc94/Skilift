@@ -50,7 +50,6 @@ public class Application extends Controller {
         return index();
     }
 
-
     public static Result search() {
 
         User user = getLoggedInUser();
@@ -70,7 +69,7 @@ public class Application extends Controller {
         return ok(account.render("account settings", user));
     }
 
-    private static User getLoggedInUser() {
+    public static User getLoggedInUser() {
         String email;
         if ((email = session().get("email")) != null)
             return User.find.byId(email);

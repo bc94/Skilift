@@ -41,18 +41,11 @@ public class User extends Model {
 
 
 
-	public String changePW(String oldPW, String newPW) {
+	public void changePW(String newPW) {
 
-		if(oldPW.equals(password)){
 			password = newPW;
 			update();
-			return ("Successfully changed password!");
-		}else{
-			
-			update();
-			return ("Wrong password, try again.");
-		}
-
+			return;
 	}
 
 	public static Finder<String,User> find = new Finder<String,User>(
