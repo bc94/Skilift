@@ -1,28 +1,29 @@
 @(message: String, stations: List[Liftstation], user: User)
 
 @main(message) {
+	<script type="text/javascript">
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition ( function ( position ) {
+			$.getJSON ( 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+			position.coords.latitude + ',' + position.coords.longitude + '&sensor=true',
+				function(data) {
+					zip = data.results[0].address_components[data.results[0].address_components.length - 1].long_name;
+					$.post("/", { plz : zip }) ;
+				} ) ;
+		} ) ;
+	} else {
+
+	});
+	</script>
+
 	<div data-role="header">
     	<h1>Welcome to Skilift!</h1>
     </div>
 
-	<button onclick="geo()">get stations nearby you</button>
 	<p id ="errormessage"></p>
-	<script type="text/javascript">
-	var x = document.getElementById("errormessage");
-	function geo() {
-	if (navigator.geolocation ) {
-		navigator.geolocation.getCurrentPosition ( function ( position ) {
-			$.getJSON ( 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.altitude + ',' + position.coords.longitude + '&sensor=true',
-				function(data) {
-					zip = data.results[0].address_components[data.results[0].address_components.length - 1].long_name;
-					$.post('/index', { plz : zip },function(result){alert('lol')}) ;
-				} ) ;
-		} ) ;
-	} else {
-		x.innerHTML = "Geolocation is not supported by this browser." ;
-	});
-	}
-	</script>
+
+
 
 
 	@list(stations, user)

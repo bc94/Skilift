@@ -88,7 +88,6 @@ public class Usermanager extends Controller {
 	public static Result authenticateChange() {
 
 		Form<PassChanger> changeForm = form(PassChanger.class).bindFromRequest();
-		System.out.println("authtenticatechange form: "+ changeForm);
 		if(changeForm.hasErrors()) {
 			return badRequest(changePass.render("Change password", form(PassChanger.class)));
 		} else {
