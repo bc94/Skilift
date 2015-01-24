@@ -44,13 +44,18 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result removeFavourite(Integer LiftstationID) {
-        User user = getLoggedInUser();
 
+        User user = getLoggedInUser();
         Liftstation station = Liftstation.find.byId(LiftstationID);
         user.removeFavourite(station);
         return index();
     }
 
+    @Security.Authenticated(Secured.class)
+    public static Result confirm() {
+
+        return ok(confirm.render("Confirmation"));
+    }
     public static Result search() {
         User user = getLoggedInUser();
     	return ok(search.render("search for stations", new ArrayList<Liftstation>(), user));
