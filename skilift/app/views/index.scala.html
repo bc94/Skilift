@@ -5,32 +5,22 @@
     	<h1>Welcome to Skilift!</h1>
     </div>
 
-	<button onclick="getLocation()">get stations nearby you</button>
+	<button onclick="geo()">get stations nearby you</button>
 	<p id ="errormessage"></p>
-	<script>
+	<script type="text/javascript">
 	var x = document.getElementById("errormessage");
-	var xmlhttp =  new XMLHttpRequest();
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(sendPosition);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
-	}
-
-	function sendPosition(position) {
-		xmlhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng=" + position.coords.altitude + "," + position.coords.longitude + "&sensor=true_or_false",true);
-		xmlhttp.send();
-		xmlDoc = xmlhttp.responseXML;
-
-
+	function geo() {
+	if (navigator.geolocation ) {
+		navigator.geolocation.getCurrentPosition ( function ( position ) {
+			$.getJSON ( 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.altitude + ',' + position.coords.longitude + '&sensor=true',
+				function(data) {
+					zip = data.results[0].address_components[data.results[0].address_components.length - 1].long_name;
+					$.post('/index', { plz : zip },function(result){alert('lol')}) ;
+				} ) ;
+		} ) ;
+	} else {
+		x.innerHTML = "Geolocation is not supported by this browser." ;
+	});
 	}
 	</script>
 

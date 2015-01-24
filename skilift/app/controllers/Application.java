@@ -11,6 +11,7 @@ import java.io.*;
 import views.html.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static controllers.Usermanager.getLoggedInUser;
 import static play.data.Form.form;
@@ -59,6 +60,13 @@ public class Application extends Controller {
     public static Result search() {
         User user = getLoggedInUser();
     	return ok(search.render("search for stations", new ArrayList<Liftstation>(), user));
+    }
+
+    public static Result displayPLZstations() {
+        DynamicForm plzForm = Form.form().bindFromRequest();
+        int plz = Integer.parseInt(plzForm.get("plz"));
+        List<Liftstation> stations = Liftstation.find.where().eq("plz",plz).findList();
+        return ok(index.render("Liftstations nearby",stations,getLoggedInUser()));
     }
 
     public static class Search {

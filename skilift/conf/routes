@@ -4,6 +4,7 @@
 
 # Home page
 GET         /                             controllers.Application.index()
+POST		/index						  controllers.Application.displayPLZstations()
 GET         /login                        controllers.Usermanager.login()
 POST        /login                        controllers.Usermanager.authenticateLogin()
 GET         /logout                       controllers.Usermanager.logout()
