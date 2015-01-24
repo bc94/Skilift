@@ -17,6 +17,8 @@ GET         /search                       controllers.Application.search()
 GET         /account                      controllers.Application.account()
 GET         /changePW                     controllers.Usermanager.changePass()
 POST        /changePW                     controllers.Usermanager.authenticateChange()
+GET         /changePay                    controllers.Usermanager.changePay()
+POST        /changePay                    controllers.Usermanager.authenticatePayment()
 GET         /jump/:id                     controllers.Application.jump(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path

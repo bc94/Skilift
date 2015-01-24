@@ -11,6 +11,7 @@ import views.html.jump;
 import views.html.login;
 import views.html.register;
 import views.html.changePass;
+import views.html.changePay;
 import controllers.Application;
 import play.*;
 import play.data.DynamicForm;
@@ -50,6 +51,10 @@ public class Usermanager extends Controller {
 		}
 	}
 
+	public static class Payment {
+		public String payment;
+	}
+
 	public static Result login() {
 		return ok(login.render("Login to Skilift",form(Login.class)));
 	}
@@ -60,6 +65,9 @@ public class Usermanager extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result changePass() { return ok(changePass.render("Change password", form(PassChanger.class)));}
+
+	@Security.Authenticated(Secured.class)
+	public static Result changePay() { return ok(changePay.render("Change payment method", form(Payment.class)));}
 
 	public static Result authenticateLogin() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -85,6 +93,19 @@ public class Usermanager extends Controller {
 			return badRequest(changePass.render("Change password", form(PassChanger.class)));
 		} else {
 			getLoggedInUser().changePW(changeForm.get().newPassword);
+			return redirect(routes.Application.account());
+		}
+	}
+
+	@Security.Authenticated(Secured.class)
+	public static Result authenticatePayment() {
+
+		Form<Payment> payForm = form(Payment.class).bindFromRequest();
+		if(payForm.hasErrors()){
+			return badRequest(changePay.render("Change payment method", form(Payment.class)));
+		} else {
+			getLoggedInUser().changePayment(payForm.get().payment);
+			System.out.println(getLoggedInUser().paymentMethod);
 			return redirect(routes.Application.account());
 		}
 	}

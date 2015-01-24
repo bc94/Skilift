@@ -1,0 +1,23 @@
+@(message:String, form: Form[Usermanager.Payment])
+@import views.html.helper.form
+
+@main(message) {
+    <div>
+        <div data-role="header">
+            <h1>Change payment method</h1>
+        </div>
+
+        @helper.form(routes.Usermanager.authenticatePayment) {
+
+            <select name="payment">
+
+                <option value="paypal">PayPal</option>
+                <option value="visa">Visa</option>
+                <option value="master">Mastercard</option>
+            </select>
+            <p>
+                <button type="submit">Change</button>
+            </p>
+        }
+    </div>
+}
