@@ -5,14 +5,15 @@
 # Home page
 GET         /                             controllers.Application.index()
 GET         /login                        controllers.Usermanager.login()
-POST 		/login						  controllers.Usermanager.authenticateLogin()
+POST        /login                        controllers.Usermanager.authenticateLogin()
 GET         /logout                       controllers.Usermanager.logout()
-GET 		/register					  controllers.Usermanager.registerScreen()
+GET         /register                     controllers.Usermanager.registerScreen()
 POST        /register                     controllers.Usermanager.newUser()
 GET         /favourites                   controllers.Application.favourites()
 GET         /favourites/:id               controllers.Application.addFavourite(id: Int)
 GET         /favourites/:id/remove        controllers.Application.removeFavourite(id: Int)
-GET         /search                       controllers.Application.searchLiftstations(name: String?="")
+POST        /search                       controllers.Application.searchLiftstations()
+GET         /search                       controllers.Application.search()
 GET         /account                      controllers.Application.account()
 GET         /jump/:id                     controllers.Application.jump(id: Int)
 

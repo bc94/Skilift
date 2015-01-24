@@ -40,7 +40,6 @@ public class Usermanager extends Controller {
 	public static Result authenticateLogin() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
-			System.out.println("lol");
 			return badRequest(login.render("Login to Skilift", form(Login.class)));
 		}
 		else {

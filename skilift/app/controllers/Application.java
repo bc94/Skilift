@@ -52,15 +52,19 @@ public class Application extends Controller {
 
 
     public static Result search() {
-
         User user = getLoggedInUser();
     	return ok(search.render("search for stations", new ArrayList<Liftstation>(), user));
     }
 
+    public static class Search {
+        public String name;
+    }
 
-    public static Result searchLiftstations(String name) {
+
+    public static Result searchLiftstations() {
+        Form<Search> searchForm = form(Search.class).bindFromRequest();
         User user = getLoggedInUser();
-        return ok(search.render("search for stations",Liftstation.findForName(name), user));
+        return ok(search.render("search for stations",Liftstation.search(searchForm.get().name), user));
     }
 
 

@@ -1,10 +1,9 @@
 @(message:String,stations: List[Liftstation], user: User)
-
+@import views.html.helper.form
 
 @main(message) {
-	<br>
-	<form id="search" method="get">
-		<input name="name" type="search" placeholder="Search">
-	</form>
+	@helper.form(routes.Application.searchLiftstations) {
+		<p><input name="name" type="search" placeholder="Search"></p>
+	}
 	@list(stations, user)
 }

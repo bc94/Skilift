@@ -10,6 +10,7 @@ import java.io.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import jxl.*;
@@ -46,8 +47,11 @@ public class Liftstation extends Model {
 			Integer.class, Liftstation.class
 	);
 
-	public static List<Liftstation> findForName(String name) {
-		return Liftstation.find.where().like("name",name+"%").findList();
+	public static List<Liftstation> search(String name) {
+		List<Liftstation> stations = new LinkedList<>();
+		stations.addAll(Liftstation.find.where().ilike("name","%"+name+"%").findList());
+		stations.addAll(Liftstation.find.where().like("plz",name+"%").findList());
+		return stations;
 	}
 	
 	public static void readXLSTable(File table){
