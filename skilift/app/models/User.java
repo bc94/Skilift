@@ -45,7 +45,6 @@ public class User extends Model {
 
 			password = newPW;
 			update();
-			return;
 	}
 
 	public static Finder<String,User> find = new Finder<String,User>(
@@ -81,6 +80,7 @@ public class User extends Model {
 
 	public static boolean authenticate(String email, String password) {
 		User wanted = User.find.byId(email);
+		System.out.println("email: "+ email + "password: " + password);
 		if (wanted == null || !wanted.password.equals(password))
 			return false;
 		return true;

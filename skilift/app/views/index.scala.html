@@ -3,8 +3,37 @@
 @main(message) {
 	<div data-role="header">
     	<h1>Welcome to Skilift!</h1>
-  		<h3>Skistations nearby:</h3>
     </div>
+
+	<button onclick="getLocation()">get stations nearby you</button>
+	<p id ="errormessage"></p>
+	<script>
+	var x = document.getElementById("errormessage");
+	var xmlhttp =  new XMLHttpRequest();
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(sendPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	function sendPosition(position) {
+		xmlhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/xml?latlng=" + position.coords.altitude + "," + position.coords.longitude + "&sensor=true_or_false",true);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+
+
+	}
+	</script>
+
 
 	@list(stations, user)
 

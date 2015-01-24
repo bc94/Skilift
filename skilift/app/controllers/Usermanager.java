@@ -35,19 +35,16 @@ public class Usermanager extends Controller {
 	}
 
 	public static class PassChanger {
-
 		public String oldPassword;
 		public String newPassword;
 
 		public String validate() {
 
-			User user = Application.getLoggedInUser();
+			User user = getLoggedInUser();
 			if(User.authenticate(user.mail, oldPassword) == false) {
-
+				System.out.println(user.mail + " " + oldPassword + " " + newPassword);
 				return "Invalid password, try again.";
 			} else {
-
-				user.changePW(newPassword);
 				return null;
 			}
 		}
@@ -83,10 +80,11 @@ public class Usermanager extends Controller {
 	public static Result authenticateChange() {
 
 		Form<PassChanger> changeForm = form(PassChanger.class).bindFromRequest();
+		System.out.println("authtenticatechange form: "+ changeForm);
 		if(changeForm.hasErrors()) {
-			System.out.println("lol");
 			return badRequest(changePass.render("Change password", form(PassChanger.class)));
 		} else {
+			getLoggedInUser().changePW(changeForm.get().newPassword);
 			return redirect(routes.Application.account());
 		}
 	}
@@ -112,5 +110,10 @@ public class Usermanager extends Controller {
 		);
 	}
 
-
+	public static User getLoggedInUser() {
+		String email;
+		if ((email = session().get("email")) != null)
+			return User.find.byId(email);
+		return null;
+	}
 }

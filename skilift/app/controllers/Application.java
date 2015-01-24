@@ -12,6 +12,7 @@ import views.html.*;
 
 import java.util.ArrayList;
 
+import static controllers.Usermanager.getLoggedInUser;
 import static play.data.Form.form;
 
 public class Application extends Controller {
@@ -73,10 +74,4 @@ public class Application extends Controller {
         return ok(account.render("account settings", user));
     }
 
-    public static User getLoggedInUser() {
-        String email;
-        if ((email = session().get("email")) != null)
-            return User.find.byId(email);
-        return null;
-    }
 }

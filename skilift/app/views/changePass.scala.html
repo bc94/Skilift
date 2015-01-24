@@ -2,12 +2,12 @@
 @import views.html.helper.form
 
 @main(message) {
-    @helper.form(routes.Usermanager.authenticateChange) {
+    <div>
+        <div data-role="header">
+            <h1>Change password</h1>
+        </div>
 
-        <div>
-            <div data-role="main">
-                <h1>Change password</h1>
-            </div>
+        @helper.form(routes.Usermanager.authenticateChange) {
 
             <p>
                 <input type="password" name="oldPassword" placeholder="Enter current password">
@@ -18,6 +18,6 @@
             <p>
                 <button type="submit">Change</button>
             </p>
-        </div>
-    }
+        }
+    </div>
 }
