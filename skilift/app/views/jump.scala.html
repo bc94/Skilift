@@ -9,12 +9,8 @@
 			</div>
 
 			<div data-role="main" data-type="ui-content">
-			<select>
-			@for(i <- 1 to station.capacity) {
-				<option value ='@i'>@i</option>
-			}
-
-  			</select>
+				<label for="slider-1">Input slider:</label>
+				<input type="range" name="slider-1" id="slider-1" value="0" min="0" max="@station.capacity" />
 			<!--<input class="myButton" type='submit' name='submit' value="jump the queue"/>-->
 			<a  data-ajax="false" href="#confirm" class="ui-btn">Jump the queue</a>
 			</div>

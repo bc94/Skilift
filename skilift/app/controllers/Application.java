@@ -17,7 +17,6 @@ import static play.data.Form.form;
 public class Application extends Controller {
 
     public static Result index() {
-
         User user = getLoggedInUser();
         return ok(index.render("Skilift", Liftstation.find.all(), user));
     }
@@ -39,7 +38,7 @@ public class Application extends Controller {
         User user = getLoggedInUser();
         Liftstation station = Liftstation.find.byId(LiftstationID);
         user.addFavourite(station);
-        return ok(favourites.render("Skilift favourites", user.favourites, user));
+        return index();
     }
 
     @Security.Authenticated(Secured.class)
@@ -48,7 +47,7 @@ public class Application extends Controller {
 
         Liftstation station = Liftstation.find.byId(LiftstationID);
         user.removeFavourite(station);
-        return ok(favourites.render("Skilift favourites",user.favourites, user));
+        return index();
     }
 
 
