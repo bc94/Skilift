@@ -11,6 +11,7 @@ import java.io.*;
 import views.html.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static controllers.Usermanager.getLoggedInUser;
@@ -20,7 +21,7 @@ public class Application extends Controller {
 
     public static Result index() {
         User user = getLoggedInUser();
-        return ok(index.render("Skilift", Liftstation.find.all(), user));
+        return ok(index.render("Skilift", new LinkedList<Liftstation>(), user));
     }
 
     @Security.Authenticated(Secured.class)
@@ -65,8 +66,9 @@ public class Application extends Controller {
     public static Result displayPLZstations() {
         DynamicForm plzForm = Form.form().bindFromRequest();
         int plz = Integer.parseInt(plzForm.get("plz"));
+        System.out.println("displayPLZstations called");
         List<Liftstation> stations = Liftstation.find.where().eq("plz",plz).findList();
-        return ok(index.render("Liftstations nearby",stations,getLoggedInUser()));
+        return ok(listelements.render(stations, getLoggedInUser()));
     }
 
     public static class Search {

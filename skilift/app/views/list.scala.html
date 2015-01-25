@@ -1,7 +1,7 @@
 @(stations: List[Liftstation], user: User)
 
 <div>
-	<ul data-role="listview" data-inset="true">
+	<ul data-role="listview" data-inset="true" class="list" >
 	@for(station <- stations) {
 		<li>
 		<a href="/jump/@station.ID">

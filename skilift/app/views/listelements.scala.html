@@ -1,0 +1,22 @@
+@(stations: List[Liftstation], user: User)
+
+
+		@for(station <- stations) {
+			<li>
+				<a href="/jump/@station.ID">
+
+					<h1>@station.getName()</h1>
+					<p>PLZ: @station.plz</p>
+					<p>capacity: @station.capacity</p>
+					@if(user == null || !user.isFav(station)){
+						<a  href="/favourites/@station.ID" data-icon ="star" class="ui-btn"><h3>Add to favourites</h3>
+						</a>
+					}else{
+						<a  href="/favourites/@station.ID/remove" data-icon ="minus" class="ui-btn"><h3>Remove from favourites</h3></a>
+					}
+
+				</a>
+			</li>
+		}
+
+
