@@ -6,13 +6,14 @@
         <h1> Your QR code:</h1>
     </div>
 
-
-    <canvas id="qr"></canvas>
-
+    <br><br><br>
+    <div id="qr" align="center"></div>
+    <br><br>
+    <h4 align="center">Use this code for the QR-Code scanner to pass the barrier</h4>
     <script src="@routes.Assets.at("javascripts/jquery.qrcode-0.11.0.min.js")"></script>
     <script>
     $("#qr").qrcode({
-        render: "canvas",
+        render: "div",
         width: 100,
         height: 100,
         color: '#3a3',
