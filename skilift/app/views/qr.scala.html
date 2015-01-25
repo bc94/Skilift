@@ -5,13 +5,17 @@
     <div data-role="header">
         <h1> Your QR code:</h1>
     </div>
-    <div id="qr"></div>
 
-    <script>$("#qr").qrcode({
-        render: "div",
+
+    <canvas id="qr"></canvas>
+
+    <script src="@routes.Assets.at("javascripts/jquery.qrcode-0.11.0.min.js")"></script>
+    <script>
+    $("#qr").qrcode({
+        render: "canvas",
         width: 100,
         height: 100,
-        color: "#3a3",
+        color: '#3a3',
         text: "@qrcode"
         });
     </script>
