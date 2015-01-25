@@ -7,6 +7,8 @@ import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.*;
 import java.io.*;
+import java.security.SecureRandom;
+import java.math.BigInteger;
 
 import views.html.*;
 
@@ -18,6 +20,14 @@ import static controllers.Usermanager.getLoggedInUser;
 import static play.data.Form.form;
 
 public class Application extends Controller {
+
+    private static class SessionIdentifierGenerator {
+        private SecureRandom random = new SecureRandom();
+
+        public String nextSessionId() {
+            return new BigInteger(130, random).toString(32);
+        }
+    }
 
     public static Result index() {
         User user = getLoggedInUser();
@@ -87,6 +97,14 @@ public class Application extends Controller {
     public static Result account(){
         User user = getLoggedInUser();
         return ok(account.render("account settings", user));
+    }
+
+    @Security.Authenticated(Secured.class)
+    public static Result generateQR(){
+
+        SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
+        String toEncode = sig.nextSessionId();
+        return ok(qr.render("your qr code", toEncode));
     }
 
 }
