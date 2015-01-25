@@ -117,6 +117,8 @@ public class Usermanager extends Controller {
 			);
 		} else {
 			User.create(registerForm.get());
+			session().clear();
+			session("email", registerForm.get().mail);
 			return redirect(routes.Application.index());
 		}
 	}
